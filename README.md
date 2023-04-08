@@ -22,7 +22,7 @@ The docker-compose file is used to deploy the database ( postgres) on an seperat
 Results before nginx caching
 ![Alt text](/Test%20Results/Before_Caching.png)
 Results after nginx caching
-![Alt text](/Test%20Results/After_Caching.png)
+![Alt text](/Test%20Results/After_caching.png)
 Results at 4k RPS using the last 20% of dataset
 ![Alt text](/Test%20Results/4k_RPS_LAST_20%25.png)
 Results at 1k RPS using the whole dataset
