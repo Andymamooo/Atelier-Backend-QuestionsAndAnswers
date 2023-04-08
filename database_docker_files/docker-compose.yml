@@ -1,0 +1,20 @@
+services:
+  db:
+    image: postgres:alpine
+    restart: always
+    container_name: sdc-db_c
+    environment:
+      POSTGRES_USER: andyma
+      POSTGRES_PASSWORD: 'password'
+      POSTGRES_DB: questionsandanswers
+      PGDATA: /var/lib/postgresql/data/db-files/
+      PGHBA_CONF_FILE : /etc/postgresql/pg_hba.conf
+      POSTGRES_CONFIG_FILE : /etc/postgresql/postgresql.conf
+    ports:
+      - '5432:5432'
+    volumes:
+      - /home/ubuntu/SDC_CSV:/var/lib/postgresql/data/pgdata # moved sdc_csv data over to ec2 instance, stored in /home/ubuntu/sdc_csv. this was done via secure copying over the files from my local computer to the ec2 instance
+      - /home/ubuntu/database/CreateQATables.sql:/docker-entrypoint-initdb.d/1-init.sql # moved CreateQATables over to ec2 instance, it was stored in /home/ubuntu/database this was done via secure copying over the files from my local computer to the ec2 instance
+      - /home/ubuntu/database/postgresql.conf:/etc/postgresql/postgresql.conf # 
+      - /home/ubuntu/database/pg_hba.conf:/etc/postgresql/pg_hba.conf
+~
